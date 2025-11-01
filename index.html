@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f1419">
+    <meta name="description" content="Administrador de videojuegos estilo Epic Games">
+    <title>GameHub - Tienda de Juegos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon-192.png">
+</head>
+<body>
+    <!-- ========================================
+         BARRA DE TÍTULO PERSONALIZADA (Window Controls Overlay)
+         Se muestra automáticamente cuando WCO está activo
+         ======================================== -->
+    <div class="custom-title-bar">
+        <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 40 40">
+                <rect width="40" height="40" rx="8" fill="#00d4ff"/>
+                <path d="M20 10L30 25H10L20 10Z" fill="#0f1419"/>
+            </svg>
+            <span>GameHub</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="active" data-page="store">Tienda</a></li>
+            <li><a href="#" data-page="library">Biblioteca</a></li>
+            <li><a href="#" data-page="community">Comunidad</a></li>
+            <li><a href="#" data-page="profile">Perfil</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="search-btn">🔍</button>
+            <button class="cart-btn">🛒 <span class="cart-count">0</span></button>
+        </div>
+    </div>
+    
+    <!-- ========================================
+         NAVEGACIÓN ORIGINAL (se oculta cuando WCO está activo)
+         ======================================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <rect width="40" height="40" rx="8" fill="#00d4ff"/>
+                    <path d="M20 10L30 25H10L20 10Z" fill="#0f1419"/>
+                </svg>
+                <span>GameHub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="active" data-page="store">Tienda</a></li>
+                <li><a href="#" data-page="library">Biblioteca</a></li>
+                <li><a href="#" data-page="community">Comunidad</a></li>
+                <li><a href="#" data-page="profile">Perfil</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn">🔍</button>
+                <button class="cart-btn">🛒 <span class="cart-count">0</span></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <main id="main-content">
+        <!-- PÁGINA 1: TIENDA -->
+        <section id="store-page" class="page active">
+            <!-- Hero Banner -->
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">JUEGO DESTACADO</span>
+                    <h1>Cyber Legends 2077</h1>
+                    <p>Sumérgete en un mundo futurista lleno de acción y aventura</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Comprar Ahora - $59.99</button>
+                        <button class="btn btn-secondary">Ver Tráiler</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ofertas Especiales -->
+            <section class="section">
+                <h2>🔥 Ofertas Especiales</h2>
+                <div class="game-grid">
+                    <div class="game-card" data-game="1">
+                        <div class="game-image">
+                            <span class="discount-badge">-75%</span>
+                        </div>
+                        <div class="game-info">
+                            <h3>Apex Warriors</h3>
+                            <div class="game-price">
+                                <span class="old-price">$39.99</span>
+                                <span class="new-price">$9.99</span>
+                            </div>
+                            <button class="btn btn-small">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                    <div class="game-card" data-game="2">
+                        <div class="game-image">
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <div class="game-info">
+                            <h3>Space Odyssey</h3>
+                            <div class="game-price">
+                                <span class="old-price">$49.99</span>
+                                <span class="new-price">$24.99</span>
+                            </div>
+                            <button class="btn btn-small">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                    <div class="game-card" data-game="3">
+                        <div class="game-image">
+                            <span class="discount-badge">-60%</span>
+                        </div>
+                        <div class="game-info">
+                            <h3>Fantasy Quest</h3>
+                            <div class="game-price">
+                                <span class="old-price">$29.99</span>
+                                <span class="new-price">$11.99</span>
+                            </div>
+                            <button class="btn btn-small">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Juegos Populares -->
+            <section class="section">
+                <h2>⭐ Más Populares</h2>
+                <div class="game-list">
+                    <div class="game-item">
+                        <div class="game-thumbnail"></div>
+                        <div class="game-details">
+                            <h4>Dragon's Legacy</h4>
+                            <p>RPG • Aventura</p>
+                        </div>
+                        <span class="game-price-tag">$34.99</span>
+                    </div>
+                    <div class="game-item">
+                        <div class="game-thumbnail"></div>
+                        <div class="game-details">
+                            <h4>Racing Thunder</h4>
+                            <p>Carreras • Acción</p>
+                        </div>
+                        <span class="game-price-tag">$19.99</span>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- PÁGINA 2: BIBLIOTECA -->
+        <section id="library-page" class="page">
+            <div class="page-header">
+                <h1>Mi Biblioteca</h1>
+                <div class="filters">
+                    <button class="filter-btn active">Todos</button>
+                    <button class="filter-btn">Instalados</button>
+                    <button class="filter-btn">Recientes</button>
+                </div>
+            </div>
+
+            <div class="library-grid">
+                <div class="library-card">
+                    <div class="library-image"></div>
+                    <div class="library-info">
+                        <h3>Cyber Legends 2077</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <p>Última vez jugado: Hace 2 horas</p>
+                        <button class="btn btn-primary">Jugar</button>
+                    </div>
+                </div>
+                <div class="library-card">
+                    <div class="library-image"></div>
+                    <div class="library-info">
+                        <h3>Apex Warriors</h3>
+                        <p>Instalado • 45.2 GB</p>
+                        <button class="btn btn-primary">Jugar</button>
+                    </div>
+                </div>
+                <div class="library-card">
+                    <div class="library-image"></div>
+                    <div class="library-info">
+                        <h3>Space Odyssey</h3>
+                        <p>No instalado • 32 GB requeridos</p>
+                        <button class="btn btn-secondary">Instalar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA 3: COMUNIDAD -->
+        <section id="community-page" class="page">
+            <div class="page-header">
+                <h1>Comunidad</h1>
+            </div>
+
+            <div class="community-tabs">
+                <button class="tab-btn active">Noticias</button>
+                <button class="tab-btn">Logros</button>
+                <button class="tab-btn">Amigos</button>
+            </div>
+
+            <div class="community-content">
+                <article class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-date">21 Oct 2025</span>
+                        <h3>Nueva Actualización: Temporada 5</h3>
+                        <p>Descubre todo el contenido nuevo que llega con la temporada 5 de Cyber Legends.</p>
+                        <button class="btn btn-small">Leer Más</button>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-date">18 Oct 2025</span>
+                        <h3>Evento Especial de Halloween</h3>
+                        <p>Participa en nuestro evento de Halloween y obtén recompensas exclusivas.</p>
+                        <button class="btn btn-small">Leer Más</button>
+                    </div>
+                </article>
+
+                <div class="achievements-section">
+                    <h3>🏆 Logros Recientes</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🎮</span>
+                            <div>
+                                <h4>Primera Victoria</h4>
+                                <p>Ganaste tu primera partida</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-icon">⚔️</span>
+                            <div>
+                                <h4>Guerrero Legendario</h4>
+                                <p>Alcanzaste el nivel 50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA 4: PERFIL -->
+        <section id="profile-page" class="page">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-circle">JD</div>
+                </div>
+                <div class="profile-info">
+                    <h1>JohnDoe_2025</h1>
+                    <p>Miembro desde: Enero 2024</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value">24</span>
+                            <span class="stat-label">Juegos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">156</span>
+                            <span class="stat-label">Logros</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">342h</span>
+                            <span class="stat-label">Jugadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-sections">
+                <div class="profile-card">
+                    <h3>Información Personal</h3>
+                    <form class="profile-form">
+                        <div class="form-group">
+                            <label>Nombre de Usuario</label>
+                            <input type="text" value="JohnDoe_2025" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="johndoe@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>País</label>
+                            <select>
+                                <option>México</option>
+                                <option>Estados Unidos</option>
+                                <option>España</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Configuración de Cuenta</h3>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <span>Notificaciones</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <span>Perfil Público</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <span>Modo Offline</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 GameHub. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+{
+  "_comment_name": "Nombre completo de la app que se muestra al instalarla",
+  "name": "GameHub - Administrador de Videojuegos",
+
+  "_comment_short_name": "Nombre corto que se muestra si no hay espacio suficiente",
+  "short_name": "GameHub",
+
+  "_comment_description": "Breve descripción de la aplicación",
+  "description": "Plataforma de administración de videojuegos estilo Epic Games",
+
+  "_comment_start_url": "URL de inicio al abrir la app desde el icono",
+  "start_url": "/",
+
+  "_comment_display_override": "NUEVO: Habilita Window Controls Overlay para mostrar contenido en la barra de título",
+  "display_override": ["window-controls-overlay"],
+
+  "_comment_display": "Modo de visualización: 'standalone' se ve como app nativa",
+  "display": "standalone",
+
+  "_comment_background_color": "Color de fondo de la pantalla de inicio (splash screen)",
+  "background_color": "#0f1419",
+
+  "_comment_theme_color": "Color principal de la interfaz",
+  "theme_color": "#00d4ff",
+
+  "_comment_orientation": "Orientación preferida de la app",
+  "orientation": "portrait-primary",
+
+  "_comment_scope": "Rango de URLs que pertenecen a la PWA",
+  "scope": "/",
+
+  "_comment_icons": "Lista de íconos para diferentes tamaños y dispositivos",
+  "icons": [
+    {
+      "_comment_icon_72": "Icono 72x72",
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_96": "Icono 96x96",
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_128": "Icono 128x128",
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_144": "Icono 144x144",
+      "src": "/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_152": "Icono 152x152",
+      "src": "/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_192": "Icono 192x192",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_384": "Icono 384x384",
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "_comment_icon_512": "Icono 512x512",
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "_comment_screenshots": "Capturas de pantalla para mostrar en tiendas o instalación",
+  "screenshots": [
+    {
+      "_comment_screenshot1": "Pantalla horizontal",
+      "src": "/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "_comment_screenshot2": "Pantalla vertical",
+      "src": "/screenshot2.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+
+  "_comment_categories": "Categorías de la app",
+  "categories": ["games", "entertainment"],
+
+  "_comment_shortcuts": "Accesos directos al mantener presionado el icono",
+  "shortcuts": [
+    {
+      "_comment_shortcut_store": "Acceso directo a la tienda",
+      "name": "Tienda",
+      "short_name": "Tienda",
+      "description": "Ver juegos disponibles",
+      "url": "/?page=store",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "_comment_shortcut_library": "Acceso directo a la biblioteca de juegos",
+      "name": "Biblioteca",
+      "short_name": "Biblioteca",
+      "description": "Mis juegos",
+      "url": "/?page=library",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "_comment_shortcut_community": "Acceso directo a la comunidad",
+      "name": "Comunidad",
+      "short_name": "Comunidad",
+      "description": "Noticias y logros",
+      "url": "/?page=community",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "_comment_shortcut_profile": "Acceso directo al perfil del usuario",
+      "name": "Perfil",
+      "short_name": "Perfil",
+      "description": "Mi perfil",
+      "url": "/?page=profile",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    }
+  ],
+
+  "_comment_related_applications": "Apps nativas relacionadas (vacío si no hay)",
+  "related_applications": [],
+
+  "_comment_prefer_related_applications": "Si sugerir instalar apps relacionadas (false = no)",
+  "prefer_related_applications": false,
+
+  "_comment_lang": "Idioma principal",
+  "lang": "es-MX",
+
+  "_comment_dir": "Dirección del texto (ltr = izquierda a derecha)",
+  "dir": "ltr"
+}

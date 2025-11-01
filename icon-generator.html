@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Iconos GameHub</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0f1419;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        h1 {
+            color: #00d4ff;
+        }
+        .instructions {
+            max-width: 600px;
+            background: #1a1f2e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .icon-item {
+            background: #1a1f2e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        button {
+            background: #00d4ff;
+            color: #0f1419;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #00b8e6;
+        }
+        .size-label {
+            color: #a0aec0;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 Generador de Iconos GameHub</h1>
+    
+    <div class="instructions">
+        <h3>📋 Instrucciones:</h3>
+        <ol>
+            <li>Los iconos se generan automáticamente abajo</li>
+            <li>Haz clic en cada botón "Descargar" para guardar el icono</li>
+            <li>Guarda cada archivo con su nombre correspondiente (icon-72.png, icon-96.png, etc.)</li>
+            <li>Coloca todos los iconos en la misma carpeta que tu index.html</li>
+        </ol>
+        <p><strong>💡 Tip:</strong> Puedes modificar el diseño del icono editando la función drawIcon() en el código.</p>
+    </div>
+
+    <div class="icons-container" id="iconsContainer"></div>
+
+    <script>
+        const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        
+        function drawIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Fondo con gradiente
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#00d4ff');
+            gradient.addColorStop(1, '#7c3aed');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Borde redondeado (efecto de app moderna)
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, size * 0.2);
+            ctx.fill();
+            ctx.globalCompositeOperation = 'source-over';
+            
+            // Dibujar símbolo de controlador/juego
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const iconSize = size * 0.5;
+            
+            ctx.fillStyle = '#0f1419';
+            ctx.strokeStyle = '#0f1419';
+            ctx.lineWidth = size * 0.08;
+            
+            // Triángulo estilo "play" o "game"
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY - iconSize * 0.5);
+            ctx.lineTo(centerX - iconSize * 0.4, centerY + iconSize * 0.3);
+            ctx.lineTo(centerX + iconSize * 0.4, centerY + iconSize * 0.3);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Círculo decorativo
+            ctx.beginPath();
+            ctx.arc(centerX, centerY + iconSize * 0.5, size * 0.08, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        function createIconElement(size) {
+            const container = document.createElement('div');
+            container.className = 'icon-item';
+            
+            const canvas = document.createElement('canvas');
+            drawIcon(canvas, size);
+            
+            const label = document.createElement('div');
+            label.className = 'size-label';
+            label.textContent = `${size}x${size}px`;
+            
+            const button = document.createElement('button');
+            button.textContent = `⬇️ Descargar icon-${size}.png`;
+            button.onclick = () => downloadIcon(canvas, size);
+            
+            container.appendChild(canvas);
+            container.appendChild(label);
+            container.appendChild(button);
+            
+            return container;
+        }
+        
+        function downloadIcon(canvas, size) {
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Generar todos los iconos
+        const iconsContainer = document.getElementById('iconsContainer');
+        sizes.forEach(size => {
+            iconsContainer.appendChild(createIconElement(size));
+        });
+        
+        // Descargar todos
+        const downloadAllBtn = document.createElement('button');
+        downloadAllBtn.textContent = '📦 Descargar TODOS los iconos';
+        downloadAllBtn.style.padding = '15px 30px';
+        downloadAllBtn.style.fontSize = '16px';
+        downloadAllBtn.style.marginTop = '20px';
+        downloadAllBtn.onclick = () => {
+            sizes.forEach(size => {
+                const canvas = document.createElement('canvas');
+                drawIcon(canvas, size);
+                setTimeout(() => downloadIcon(canvas, size), 100 * sizes.indexOf(size));
+            });
+            alert('¡Descargando todos los iconos! Revisa tu carpeta de descargas.');
+        };
+        document.body.appendChild(downloadAllBtn);
+    </script>
+</body>
+</html>
